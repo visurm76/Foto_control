@@ -7,7 +7,7 @@ def read_json_files():
     Функиция чтения json файлов и формирует список списков из номера квартала и номера выдела
     :return: список списков
     """
-    link = os.listdir('/home/viktor/Общедоступные/Foto_control/json_files')  # Получает список имен файлов в директории
+    link = os.listdir('/json_files')  # Получает список имен файлов в директории
     path = os.getcwd()  # Текущая директория
     lst_data = []
     for i in sorted(link):
