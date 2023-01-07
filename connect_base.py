@@ -1,4 +1,4 @@
-gimport sqlite3
+import sqlite3
 
 
 def connect_sqlite():
