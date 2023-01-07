@@ -19,6 +19,3 @@ def read_json_files():
             lst_data.append(list(mass_kv_vid.values()))
 
     return lst_data
-
-
-
