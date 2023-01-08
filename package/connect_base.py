@@ -1,12 +1,12 @@
 import sqlite3
 
 
-def connect_sqlite():
+def connect_sqlite(path_files):
     """
     Функция считывания данных из базы данных
     return: список списков (квартал, выдел)
     """
-    conn = sqlite3.connect('/home/viktor/Общедоступные/Foto_control/package/gubaha.sqlite')
+    conn = sqlite3.connect(path_files)
     cur = conn.cursor()
     # Делаем запрос к базе данных и выбираем нужные столбцы из таблицы"SELECT kv,sknr,zk FROM gubaha_vydel"
     cur.execute("SELECT kv,sknr,zk FROM gubaha_vydel")
