@@ -1,7 +1,5 @@
 import package
 
-
-
 # Путь, где хранится файл базы данных
 path_connect_sqlite = '/home/viktor/Общедоступные/Foto_control/gubaha.sqlite'
 print('Перечень выделов, в которых нет фото')
@@ -19,5 +17,5 @@ for vid in package.read_json_files():
         print('____________________________')
         print('|№ кв|№ выдела|Наличие фото|')
         print('____________________________')
-        print('|{:4}| {:7}|{:>12}|'.format(vid[0],vid[1], 'Да'))
+        print('|{:4}| {:7}|{:>12}|'.format(vid[0], vid[1], 'Да'))
 print('____________________________')
