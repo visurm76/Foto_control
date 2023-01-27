@@ -14,7 +14,7 @@ def connect_sqlite(path_files):
     results = cur.fetchall()
     array = []
     for i in results:
-        if i[2] == 3 or i[2] == 10 or i[2] == 8:
+        if i[2] == 3 or i[2] == 10 or i[2] == 8 or i[2] == 9:
             array.append([int(i[0]), i[1]])
     conn.close()
     return array

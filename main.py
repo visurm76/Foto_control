@@ -1,20 +1,25 @@
 import package
 import openpyxl as op
-import os
 
 NAME_FILE = 'list.xlsx'
+PATH_CON_SQLITE = '/home/viktor/Общедоступные/Foto_control/gubaha.sqlite'
 
-lst_files = os.listdir(os.getcwd() + '/files_ex')
-path_connect_sqlite = '/home/viktor/Общедоступные/Foto_control/gubaha.sqlite'
 lst = []
-for foto in package.connect_sqlite(path_connect_sqlite):
-    if foto not in package.read_json_files():
+lst_json = package.read_json_files()
+"""
+for foto in lst_json:
+    if foto[:2] not in package.connect_sqlite(PATH_CON_SQLITE):
         lst.append(foto)
+print(lst)
 
+"""
+for foto in package.connect_sqlite(PATH_CON_SQLITE):
+    if foto not in lst_json:
+        lst.append(foto)
+print(lst)
 wb = op.Workbook()
 ws = wb.active
-# wb.create_sheet(title = 'Первый лист', index = 0)
-sheet = wb['NotPhoto']
+sheet = wb['Sheet']
 dict_name_row = {'A1': 'Квартал', 'B1': 'Выдел', 'C1': 'Имя таксатора'}
 for key, val in dict_name_row.items():
     sheet[key] = val
