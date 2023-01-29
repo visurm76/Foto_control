@@ -4,6 +4,7 @@ import os
 
 NAME_FILE = 'list.xlsx'
 FILENAME = 'gubaha_kizel.sqlite'
+TABLENAME = 'gubaha_vydel'
 
 
 def searchFile(filename):
@@ -40,7 +41,7 @@ class SqliteFilter(object):
 
     def sqliteFilter(self):
         row_name = ','.join(self.row)
-        sql = 'SELECT' + ' ' + row_name + ' ' + 'FROM gubaha_vydel'
+        sql = 'SELECT' + ' ' + row_name + ' ' + 'FROM' + ' ' + TABLENAME
         return pkg.connect_sqlite(searchFile(FILENAME), sql)
 
 
