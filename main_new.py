@@ -1,7 +1,20 @@
 import package as pkg
 import openpyxl as op
+import os
 
 NAME_FILE = 'list.xlsx'
+FILENAME = 'gubaha_kizel.sqlite'
+
+
+def searchFile(filename):
+    """
+    Функиция определения пути расположения файла по его названию
+    """
+
+    for root, dirnames, filenames in os.walk('/home/viktor/'):
+        for file in filenames:
+            if file == filename:
+                return os.path.join(root, file)
 
 
 class PhotoFilter(object):
@@ -21,7 +34,6 @@ class PhotoFilter(object):
 
 
 class SqliteFilter(object):
-    PATH_CON_SQLITE = '/home/viktor/Общедоступные/Foto_control/gubaha.sqlite'
 
     def __init__(self, *args):
         self.row = list(args)
@@ -29,8 +41,7 @@ class SqliteFilter(object):
     def sqliteFilter(self):
         row_name = ','.join(self.row)
         sql = 'SELECT' + ' ' + row_name + ' ' + 'FROM gubaha_vydel'
-        print(sql)
-        return pkg.connect_sqlite(SqliteFilter.PATH_CON_SQLITE, sql)
+        return pkg.connect_sqlite(searchFile(FILENAME), sql)
 
 
 d = PhotoFilter('kv', 'vid')
