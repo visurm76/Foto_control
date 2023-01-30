@@ -14,8 +14,6 @@ def read_json_files():
         # Открываем поочередно файлы и считываем данные
         with open(path + '/json_files/' + i, "r") as read_file:
             data = json.load(read_file)
-            # Фильтруем словарь с номером квартала и выдела
-            mass_kv_vid = {k: v for k, v in data.items() if k == 'kv' or k == 'vid'}
-            lst_data.append(list(mass_kv_vid.values()))
+            lst_data.append(data)
 
     return lst_data

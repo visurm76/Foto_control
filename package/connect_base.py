@@ -1,7 +1,7 @@
 import sqlite3
 
 
-def connect_sqlite(path_files):
+def connect_sqlite(path_files, sql):
     """
     Функция считывания данных из базы данных
     return: список списков (квартал, выдел)
@@ -9,7 +9,7 @@ def connect_sqlite(path_files):
     conn = sqlite3.connect(path_files)
     cur = conn.cursor()
     # Делаем запрос к базе данных и выбираем нужные столбцы из таблицы"SELECT kv,sknr,zk FROM gubaha_vydel"
-    cur.execute("SELECT kv,sknr,zk FROM gubaha_vydel")
+    cur.execute(sql)
     # Результат запроса в виде списка кортежей
     results = cur.fetchall()
     array = []
