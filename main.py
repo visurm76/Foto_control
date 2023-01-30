@@ -3,20 +3,15 @@ import openpyxl as op
 
 NAME_FILE = 'list.xlsx'
 PATH_CON_SQLITE = '/home/viktor/Общедоступные/Foto_control/gubaha.sqlite'
+SQL = "SELECT kv,sknr,zk FROM gubaha_vydel"
 
 lst = []
 lst_json = package.read_json_files()
-"""
-for foto in lst_json:
-    if foto[:2] not in package.connect_sqlite(PATH_CON_SQLITE):
-        lst.append(foto)
-print(lst)
 
-"""
-for foto in package.connect_sqlite(PATH_CON_SQLITE):
+print(package.connect_sqlite(PATH_CON_SQLITE, SQL))
+for foto in package.connect_sqlite(PATH_CON_SQLITE, SQL):
     if foto not in lst_json:
         lst.append(foto)
-print(lst)
 wb = op.Workbook()
 ws = wb.active
 sheet = wb['Sheet']
