@@ -10,7 +10,7 @@ def read_json_files():
     link = os.listdir('json_files')  # Получает список имен файлов в директории
     path = os.getcwd()  # Текущая директория
     lst_data = []
-    for i in sorted(link):
+    for i in sorted(tuple(link)):
         # Открываем поочередно файлы и считываем данные
         with open(path + '/json_files/' + i, "r") as read_file:
             data = json.load(read_file)

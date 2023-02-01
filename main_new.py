@@ -7,6 +7,7 @@ FILENAME = 'gubaha_kizel.sqlite'
 TABLENAME = 'gubaha_vydel'
 
 
+
 def searchFile(filename):
     """
     Функиция определения пути расположения файла по его названию
@@ -46,6 +47,8 @@ class SqliteFilter(object):
 
 
 d = PhotoFilter('kv', 'vid')
-print(d.fotoFilter())
 s = SqliteFilter('kv', 'sknr', 'zk')
+
+print(d.fotoFilter())
 print(s.sqliteFilter())
+
