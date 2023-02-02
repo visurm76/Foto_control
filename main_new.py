@@ -7,7 +7,6 @@ FILENAME = 'gubaha_kizel.sqlite'
 TABLENAME = 'gubaha_vydel'
 
 
-
 def searchFile(filename):
     """
     Функиция определения пути расположения файла по его названию
@@ -27,12 +26,21 @@ class PhotoFilter(object):
     def __init__(self, *args):
         self.row = list(args)
 
+    def __repr__(self):
+        return str(self.row)
+
     def fotoFilter(self):
         mass_filter = []
         for i in pkg.read_json_files():
             kv_vid = {k: v for k, v in i.items() if k in self.row}
             mass_filter.append(list(kv_vid.values()))
         return mass_filter
+
+    def __getitem__(self, item):
+        if 0 <= item < len(self.fotoFilter()):
+            return self.fotoFilter()[item]
+        else:
+            raise IndexError("Индекс за границами массива")
 
 
 class SqliteFilter(object):
@@ -47,8 +55,13 @@ class SqliteFilter(object):
 
 
 d = PhotoFilter('kv', 'vid')
+a = PhotoFilter('kv', 'vid', 'tax_name')
 s = SqliteFilter('kv', 'sknr', 'zk')
 
-print(d.fotoFilter())
-print(s.sqliteFilter())
+lst = []
 
+for foto in s.sqliteFilter():
+    if foto not in d.fotoFilter():
+        lst.append(foto)
+print(lst)
+print(a[0][2])
