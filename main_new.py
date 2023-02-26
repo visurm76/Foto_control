@@ -1,7 +1,7 @@
 import package as pkg
 import openpyxl as op
 
-# NAME_FILE = 'list.xlsx'
+
 FILENAME = 'gubaha_kizel.sqlite'
 TABLENAME = 'gubaha_vydel'
 
