@@ -1,4 +1,5 @@
 import sqlite3
+from main_new import TABLENAME
 
 KATZEM = {3, 10, 8, 9}
 
@@ -11,7 +12,7 @@ def connect_sqlite(path_files):
     conn = sqlite3.connect(path_files)
     cur = conn.cursor()
     # Делаем запрос к базе данных и выбираем нужные столбцы из таблицы"SELECT kv,sknr,zk FROM gubaha_vydel"
-    cur.execute("SELECT kv,sknr,zk FROM gubaha_kizel")
+    cur.execute("SELECT kv,sknr,zk FROM TABLENAME")
     # Результат запроса в виде списка кортежей
     results = cur.fetchall()
     array = []
@@ -20,6 +21,7 @@ def connect_sqlite(path_files):
             array.append([int(i[0]), i[1]])
     conn.close()
     return array
+
 
 try:
     def connect_sqlite(path_files, sql):
@@ -41,4 +43,3 @@ try:
         return array
 except:
     raise ConnectionError("No connect")
-

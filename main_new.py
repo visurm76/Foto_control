@@ -3,7 +3,7 @@ import openpyxl as op
 
 # NAME_FILE = 'list.xlsx'
 FILENAME = 'gubaha_kizel.sqlite'
-TABLENAME = 'gubaha_vydel'
+TABLENAME = 'gubaha_kizel'
 
 
 class PhotoFilter(object):
