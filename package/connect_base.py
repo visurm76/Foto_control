@@ -2,7 +2,7 @@ import sqlite3
 
 KATZEM = {3, 10, 8, 9}
 
-<<<<<<< HEAD
+
 def connect_sqlite(path_files):
     """
     Функция считывания данных из базы данных
@@ -20,7 +20,7 @@ def connect_sqlite(path_files):
             array.append([int(i[0]), i[1]])
     conn.close()
     return array
-=======
+
 try:
     def connect_sqlite(path_files, sql):
         """
@@ -41,4 +41,4 @@ try:
         return array
 except:
     raise ConnectionError("No connect")
->>>>>>> ex
+
